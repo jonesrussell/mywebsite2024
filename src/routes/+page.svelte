@@ -1,7 +1,13 @@
 <script>
-	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import NewsletterSignupForm from './sections/NewsletterSignupForm.svelte';
+	import SabrinasShows from './sections/SabrinasShows.svelte';
+	import AppearanceCards from './sections/AppearanceCards.svelte';
+	import PersonalityTraitsCards from './sections/PersonalityTraitsCards.svelte';
+	import Testimonials from './sections/Testimonials.svelte';
+	import Benefits from './sections/Benefits.svelte';
+	import Features from './sections/Features.svelte';
 </script>
 
 <svelte:head>
@@ -21,11 +27,13 @@
 		to your new<br />SvelteKit app
 	</h1>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+	<NewsletterSignupForm />
+  <SabrinasShows />
+  <AppearanceCards />
+  <PersonalityTraitsCards />
+  <Testimonials />
+  <Benefits />
+  <Features />
 </section>
 
 <style>
