@@ -1,6 +1,4 @@
 <script>
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	import NewsletterSignupForm from './sections/NewsletterSignupForm.svelte';
 	import SabrinasShows from './sections/SabrinasShows.svelte';
 	import AppearanceCards from './sections/AppearanceCards.svelte';
@@ -11,57 +9,26 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Russell Jones | Home</title>
+	<meta name="description" content="Russell Jones" />
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+	<!-- Window 1 -->
+	<div class="bg-white rounded-lg shadow-lg p-4 m-4">
+		<button class="bg-blue-500 text-white px-2 py-1 rounded-md">Open</button>
+	</div>
 
-		to your new<br />SvelteKit app
-	</h1>
+	<!-- Window 2 -->
+	<div class="bg-white rounded-lg shadow-lg p-4 m-4">
+		<button class="bg-blue-500 text-white px-2 py-1 rounded-md">Open</button>
+	</div>
 
 	<NewsletterSignupForm />
-  <SabrinasShows />
-  <AppearanceCards />
-  <PersonalityTraitsCards />
-  <Testimonials />
-  <Benefits />
-  <Features />
+	<SabrinasShows />
+	<AppearanceCards />
+	<PersonalityTraitsCards />
+	<Testimonials />
+	<Benefits />
+	<Features />
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
