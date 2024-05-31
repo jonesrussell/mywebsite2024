@@ -6,8 +6,8 @@
 		<span>395.810.080</span>
 		<span>sonstiges RAM</span>
 		<span>CPU 68040</span>
-		<span>11 aktive Anwandungen</span>
-		<span>Sanstag 24-Okt-20</span>
+		<span>11 active Applications</span>
+		<span>Saturday 24-Oct-20</span>
 		<span>11:20:33</span>
 	</div>
 </header>
