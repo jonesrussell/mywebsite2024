@@ -1,9 +1,9 @@
 <script>
 	import Header from './Header.svelte';
 	import './styles.css';
-	</script>
+</script>
 
-<div class="app">
+<div class="app bg-gray-200">
 	<Header />
 
 	<main>
