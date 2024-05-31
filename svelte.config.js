@@ -22,19 +22,6 @@ const config = {
 		}),
 		paths: {
 			base: '/'
-		},
-		prerender: {
-			enabled: true,
-			handleHttpError: async ({ error }) => {
-				console.error(error);
-				return {
-					status: 200,
-					headers: {
-						'Content-Type': 'text/html'
-					},
-					body: '<html><body><h1>Error loading page</h1></body></html>'
-				};
-			}
 		}
 	}
 };
