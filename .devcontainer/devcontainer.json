@@ -19,7 +19,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install -g npm@10.8.1 && npx playwright install-deps && npx playwright install"
+	"postCreateCommand": "npm install -g npm@10.8.1 && npm exec playwright install-deps --yes && npm exec playwright install --yes"
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
