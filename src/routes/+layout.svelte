@@ -7,15 +7,15 @@
 	import { base } from '$app/paths';
 </script>
 
-<div class="app bg-gray-200">
+<div class="app h-full bg-gray-200">
 	<Header />
 
 	<div class="flex flex-col sm:flex-row">
-		<nav class="flex flex-col p-4 space-y-4 max-w-[10rem]">
+		<nav class="flex max-w-[10rem] flex-col space-y-4 p-4">
 			<ul class="list-none">
 				<li>
 					<a href={base} class="flex flex-col items-start space-y-2">
-						<img src={logo} alt="Logo" title="Home" class="w-10 h-10" />
+						<img src={logo} alt="Logo" title="Home" class="h-10 w-10" />
 						<span>RAM Disk</span>
 					</a>
 				</li>
@@ -26,7 +26,7 @@
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
-							class="w-10 h-10"
+							class="h-10 w-10"
 						>
 							<path
 								stroke-linecap="round"
@@ -45,7 +45,7 @@
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
-							class="w-10 h-10"
+							class="h-10 w-10"
 						>
 							<path
 								stroke-linecap="round"
@@ -64,7 +64,7 @@
 						rel="noopener"
 						class="flex flex-col items-start space-y-2"
 					>
-						<img src={github} alt="GitHub" class="w-10 h-10" />
+						<img src={github} alt="GitHub" class="h-10 w-10" />
 						<span>GitHub</span>
 					</a>
 				</li>
