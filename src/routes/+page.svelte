@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 	import NewsletterSignupForm from './sections/NewsletterSignupForm.svelte';
-	import AppearanceCards from './sections/AppearanceCards.svelte';
+	import BlogCards from './sections/BlogCards.svelte';
 	import PersonalityTraitsCards from './sections/PersonalityTraitsCards.svelte';
 	import Testimonials from './sections/Testimonials.svelte';
 	import Benefits from './sections/Benefits.svelte';
@@ -14,7 +14,7 @@
 
 <section>
 	<NewsletterSignupForm />
-	<AppearanceCards />
+	<BlogCards />
 	<PersonalityTraitsCards />
 	<Testimonials />
 	<Benefits />

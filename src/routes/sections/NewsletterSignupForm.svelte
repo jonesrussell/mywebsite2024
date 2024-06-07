@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+	import WindowButton from '../../components/WindowButton.svelte';
+
 	let email = '';
 	let name = '';
 
@@ -21,33 +23,12 @@
 </script>
 
 <section aria-label="Newsletter" class="border border-gray-500 bg-gray-200 shadow-lg md:w-1/2">
-	<header class="flex items-center justify-between border-b border-gray-400 bg-gray-300 p-1">
-		<button
-			type="button"
-			on:click={closeWindow}
-			aria-label="Close"
-			class="w-[16px] border border-gray-400"
-		>
-			<!-- Close icon or character -->
-		</button>
+	<header class="flex h-2 items-center justify-between border-b border-gray-400 bg-gray-300 p-2">
+		<WindowButton action={closeWindow} label="Close" />
 		<h2 class="text-left text-base font-normal">Newsletter</h2>
 		<div class="flex items-center justify-end space-x-2">
-			<button
-				type="button"
-				on:click={minimizeWindow}
-				aria-label="Minimize"
-				class="w-[16px] border border-gray-400"
-			>
-				<!-- Minimize icon or character -->
-			</button>
-			<button
-				type="button"
-				on:click={maximizeWindow}
-				aria-label="Maximize"
-				class="w-[16px] border border-gray-400"
-			>
-				<!-- Maximize icon or character -->
-			</button>
+			<WindowButton action={minimizeWindow} label="Minimize" />
+			<WindowButton action={maximizeWindow} label="Maximize" />
 		</div>
 	</header>
 	<div class="border-l-[16px] border-r-[16px] border-gray-500 p-4">
