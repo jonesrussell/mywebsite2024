@@ -12,7 +12,7 @@
 		const headerHeight = header.offsetHeight;
 		const footerHeight = footer.offsetHeight;
 		const { clientWidth, clientHeight } = document.documentElement;
-		x = Math.floor(Math.random() * (clientWidth - window.innerWidth));
+		x = Math.floor(Math.random() * (clientWidth - header.offsetWidth));
 		y = Math.floor(Math.random() * (clientHeight - headerHeight - footerHeight) + headerHeight);
 		console.log(`Initial position: x=${x}, y=${y}`);
 	}
