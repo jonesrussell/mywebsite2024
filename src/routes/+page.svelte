@@ -1,10 +1,6 @@
 <script lang="ts">
 	import NewsletterSignupForm from './sections/NewsletterSignupForm.svelte';
 	import BlogCards from './sections/BlogCards.svelte';
-	import PersonalityTraitsCards from './sections/PersonalityTraitsCards.svelte';
-	import Testimonials from './sections/Testimonials.svelte';
-	import Benefits from './sections/Benefits.svelte';
-	import Features from './sections/Features.svelte';
 </script>
 
 <svelte:head>
@@ -15,8 +11,4 @@
 <section>
 	<NewsletterSignupForm />
 	<BlogCards />
-	<PersonalityTraitsCards />
-	<Testimonials />
-	<Benefits />
-	<Features />
 </section>
