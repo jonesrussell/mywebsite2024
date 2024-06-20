@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Window from '../../components/Window.svelte';
+	import Window from '../../components/Window/Window.svelte';
 
 	let email = '';
 	let name = '';
