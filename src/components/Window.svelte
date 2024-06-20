@@ -4,7 +4,7 @@
 
 	let x = 0;
 	let y = 0;
-	let header: WindowHeader;
+	let header: HTMLElement;
 	let footer: HTMLElement;
 
 	onMount(() => {
@@ -67,7 +67,10 @@
 	class="absolute transform border border-gray-500 bg-gray-200 shadow-lg md:w-1/2"
 	style="transform: translate3d({x}px, {y}px, 0);"
 >
-	<WindowHeader bind:this={header} {title} />
+	<div bind:this={header}>
+		<WindowHeader {title} />
+	</div>
+
 	<div class="border-l-[16px] border-r-[16px] border-gray-500 p-4">
 		<slot />
 	</div>
