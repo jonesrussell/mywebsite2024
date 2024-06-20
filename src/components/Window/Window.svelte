@@ -1,37 +1,46 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import WindowHeader from './WindowHeader.svelte';
+	import WindowFooter from './WindowFooter.svelte';
 
 	let x = 0;
 	let y = 0;
 	let header: HTMLElement;
 	let footer: HTMLElement;
 
-	onMount(() => {
+	function calculateInitialPosition() {
 		const headerHeight = header.offsetHeight;
 		const footerHeight = footer.offsetHeight;
 		const { clientWidth, clientHeight } = document.documentElement;
 		x = Math.floor(Math.random() * (clientWidth - window.innerWidth));
 		y = Math.floor(Math.random() * (clientHeight - headerHeight - footerHeight) + headerHeight);
-	});
+		console.log(`Initial position: x=${x}, y=${y}`);
+	}
 
-	function draggable(node: HTMLElement) {
+	function makeElementDraggable(node: HTMLElement) {
 		let mouseX: number;
 		let mouseY: number;
 
-		function handleMousedown(event: MouseEvent) {
+		function startDragging(event: MouseEvent) {
 			mouseX = event.clientX - node.getBoundingClientRect().left;
 			mouseY = event.clientY - node.getBoundingClientRect().top;
-
-			window.addEventListener('mousemove', handleMousemove);
-			window.addEventListener('mouseup', handleMouseup);
+			window.addEventListener('mousemove', drag);
+			window.addEventListener('mouseup', stopDragging);
 		}
 
-		function handleMousemove(event: MouseEvent) {
+		function drag(event: MouseEvent) {
 			x = event.clientX - mouseX;
 			y = event.clientY - mouseY;
+			limitMovementWithinViewport(node);
+			node.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+		}
 
-			// Limit the movement within the viewport
+		function stopDragging() {
+			window.removeEventListener('mousemove', drag);
+			window.removeEventListener('mouseup', stopDragging);
+		}
+
+		function limitMovementWithinViewport(node: HTMLElement) {
 			if (x < 0) x = 0;
 			if (x > window.innerWidth - node.offsetWidth) {
 				x = window.innerWidth - node.offsetWidth;
@@ -40,29 +49,24 @@
 			if (y > window.innerHeight - node.offsetHeight - footer.offsetHeight) {
 				y = window.innerHeight - node.offsetHeight - footer.offsetHeight;
 			}
-
-			node.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 		}
 
-		function handleMouseup() {
-			window.removeEventListener('mousemove', handleMousemove);
-			window.removeEventListener('mouseup', handleMouseup);
-		}
-
-		node.addEventListener('mousedown', handleMousedown);
+		node.addEventListener('mousedown', startDragging);
 
 		return {
 			destroy() {
-				node.removeEventListener('mousedown', handleMousedown);
+				node.removeEventListener('mousedown', startDragging);
 			}
 		};
 	}
 
 	export let title: string = '';
+
+	onMount(calculateInitialPosition);
 </script>
 
 <section
-	use:draggable
+	use:makeElementDraggable
 	aria-label={title}
 	class="absolute transform border border-gray-500 bg-gray-200 shadow-lg md:w-1/2"
 	style="transform: translate3d({x}px, {y}px, 0);"
@@ -74,5 +78,8 @@
 	<div class="border-l-[16px] border-r-[16px] border-gray-500 p-4">
 		<slot />
 	</div>
-	<footer bind:this={footer} class="h-2 border-t border-gray-500 bg-gray-200 p-2"></footer>
+
+	<div bind:this={footer}>
+		<WindowFooter />
+	</div>
 </section>
